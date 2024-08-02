@@ -1,0 +1,23 @@
+{% extends 'nota/base/base.html' %}
+{% block content %}
+
+    TESTE
+    {% for nota in dados.values %}
+        <div class="card  flex flex-col border-2 justify-center">
+        {{ nota }}
+        <h1>Lista de Notas</h1>
+        <ul>
+            {% for nota in dados.values%}
+                <li>
+                    <strong>Nota:</strong> {{ nota.name }}<br>
+                    <strong>Descrição:</strong> {{ nota.description }}<br>
+                    <strong>Valor:</strong> {{ nota.value }}<br>
+                    <strong>Data:</strong> {{ nota.datetime }}<br>
+                    <strong>Categoria:</strong> {% if nota.category_id %}{{ nota.category_id.name }}{% else %}Sem categoria{% endif %}
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</div>
+{% endblock %}
