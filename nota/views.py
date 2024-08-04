@@ -11,3 +11,7 @@ def index(request):
         total += item.value
 
     return render(request, 'nota/index.html', {'dados': dados, 'total': total})
+
+
+def add_note(request):
+    return render(request, 'nota/crud/form.html')

@@ -1,7 +1,7 @@
 {% extends 'nota/base/base.html' %}
 {% block content %}
     <div class="flex justify-center border-black bg-red-400">
-    
+
     TOTAL DE GASTOS R${{ total }}
     </div>
     <h1>Lista de Notas</h1>
@@ -25,8 +25,8 @@
             </ul>
 
         {% endfor %}
-    
-    <a href="" class=" w-16 h-16 btn btn-circle bg-blue-600 fixed bottom-10 right-10 z-50 ">
+
+    <a href="{% url 'novo_gasto' %}" class=" w-16 h-16 btn btn-circle bg-blue-600 fixed bottom-10 right-10 z-50 ">
         <p class="text-white text-center">+</p>
     </a>
     </div>

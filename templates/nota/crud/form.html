@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'nota/base/base.html' %}
+{% block content %}
+    <div class="bg-red-400 border border-black rounded-md m-6 ">
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <span>
+                <label>asdasd</label>
+            <input type="text" value="{{  }}"  /> 
+            </span>
+        </div>
+    </form>
+    </div>
+{% endblock %}
