@@ -1,7 +1,31 @@
-<nav class="bg-blue-400 navbar border-xl border-black border-2 rounded-b-md px-8 py-6">
+<nav class="bg-blue-400 navbar border-xl border-black border-2 rounded-b-md px-8 py-6 fixed bg-glass z-50 top-0">
     <!-- Código HTML para sua barra de navegação -->
-    <div class="flex-1">
-        <div><a href="{% url 'home' %}">LOGO</a></div>
+    <div class="flex-1 dropdown">
+        <div tabindex="0" role="button" class="btn btn-md btn-ghost btn-square hover:bg-slate-100/40">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor">
+                        <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h7"/>
+                    </svg>
+                </div>
+                <ul
+                        tabindex="0"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                    <li><a>Home</a></li>
+                    <li><a>Criar Nota</a></li>
+                    <li><a>About</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
     <div class="flex-none">
         <ul class="grid grid-cols-3  gap-4 justify-center">

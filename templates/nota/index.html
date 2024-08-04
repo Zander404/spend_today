@@ -1,23 +1,35 @@
 {% extends 'nota/base/base.html' %}
 {% block content %}
+    <div class="flex justify-center border-black bg-red-400">
+    
+    TOTAL DE GASTOS R${{ total }}
+    </div>
+    <h1>Lista de Notas</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center border rounded-md m-4 sm:m-10">
+        {% for nota in dados.values %}
+            <ul class="flex justify-center">
+                <div class="card container w-[30rem] md:w-[20rem] m-10 border-2 m-6 p-6">
+                    <li>
+                        <strong>Nota:</strong> {{ nota.name }}<br>
+                        <strong>Descrição:</strong> {{ nota.description }}<br>
+                        <strong>Valor:</strong> {{ nota.value }}<br>
+                        <strong>Data:</strong> {{ nota.datetime }}<br>
+                        <strong>Categoria:</strong>
+                        {% if nota.category_id %}
+                            {{ nota.category_id.name }}
+                        {% else %}
+                            Sem categoria
+                        {% endif %}
+                    </li>
+                </div>
+            </ul>
 
-    TESTE
-    {% for nota in dados.values %}
-        <div class="card  flex flex-col border-2 justify-center">
-        {{ nota }}
-        <h1>Lista de Notas</h1>
-        <ul>
-            {% for nota in dados.values%}
-                <li>
-                    <strong>Nota:</strong> {{ nota.name }}<br>
-                    <strong>Descrição:</strong> {{ nota.description }}<br>
-                    <strong>Valor:</strong> {{ nota.value }}<br>
-                    <strong>Data:</strong> {{ nota.datetime }}<br>
-                    <strong>Categoria:</strong> {% if nota.category_id %}{{ nota.category_id.name }}{% else %}Sem categoria{% endif %}
-                </li>
-                <hr>
-            {% endfor %}
-        </ul>
-    {% endfor %}
-</div>
+        {% endfor %}
+    
+    <a href="" class=" w-16 h-16 btn btn-circle bg-blue-600 fixed bottom-10 right-10 z-50 ">
+        <p class="text-white text-center">+</p>
+    </a>
+    </div>
 {% endblock %}
+
+

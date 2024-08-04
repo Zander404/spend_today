@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <title>{% block title %} Site {% endblock %}</title>
@@ -12,9 +12,12 @@
 </head>
 <body>
 {% include 'nota/base/navbar.html' %}
-{% block content %}
+<section class="my-32">
 
-{% endblock %}
+    {% block content %}
+
+    {% endblock %}
+</section>
 {% include 'nota/base/footer.html' %}
 </body>
 </html>
