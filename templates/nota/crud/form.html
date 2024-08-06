@@ -1,14 +1,55 @@
 {% extends 'nota/base/base.html' %}
 {% block content %}
-    <div class="bg-red-400 border border-black rounded-md m-6 ">
-    <form method="post">
-        {% csrf_token %}
-        <div>
-            <span>
-                <label>asdasd</label>
-            <input type="text" value="{{  }}"  /> 
-            </span>
-        </div>
-    </form>
+    <div class="bg-slate-300 p-6 border border-black rounded-md m-6 ">
+        <form method="post">
+            {% csrf_token %}
+            <div class=" grid gap-6 justify-center">
+
+                <label class="form-control">
+                    <div class="label">
+                        <span class="label-text">
+                            Nome do Gasto
+                        </span></div>
+                    <input name="name" class="input input-bordered flex items-center gap-2" type="text"
+                           placeholder="Nome do Gasto" value="{{ form.name.value }}" required/>
+                </label>
+                <label class="form-control">
+
+                    <div class="label-text">Descrição do Gasto</div>
+                    <textarea name="description" placeholder="Descreva o que foi comrprado"
+                              class="textarea textarea-bordered h-24">{{ form.description.value }}</textarea>
+                </label>
+
+
+                <label class="form-control">
+                    <div class="label-text">
+                        Valor
+                    </div>
+                    <div class="input  flex items-center gap-2 w-full">
+                        
+                    R$
+                    <input min="1" pattern="^\d*$" placeholder="0.0" type="number" name="value" prefix="R$"
+                           class="input grow" value="{{ form.value.value }}" required/>
+                    </div>
+                </label>
+            
+                <label class="form-control">
+                    <div class="label-text ">Categoria</div>
+                    <select id="category" name="category" class="select">
+                        {% for option in category.values %}
+                            <option class="option" value={{ option.id }}>{{ option.name }}</option>
+                        {% endfor %}
+                    </select>
+
+                </label>
+
+                <label class="justify-center form-control">
+                    <button class="btn bg-success text-white" type="submit"> Salvar</button>
+                </label>
+                <label class="justify-center form-control">
+                    <a href="{% url 'home' %}" class="btn bg-info text-white" type="submit">Voltar</a>
+                </label>
+            </div>
+        </form>
     </div>
 {% endblock %}
