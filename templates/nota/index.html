@@ -9,9 +9,9 @@
         </span>
 
     </div>
-    <h1>Lista de Notas</h1>
+    <h1 class="flex justify-center">Lista de Notas</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center border rounded-lg m-4 sm:m-10">
-        {% for nota in dados.values %}
+        {% for nota in dados %}
             <ul class="flex justify-center">
                 <div class="card container w-[30rem] md:w-[20rem] m-10 border-2 m-6 p-6">
                     <a href="{% url 'info_gasto' nota.id %}">
@@ -22,11 +22,7 @@
                             <strong>Valor: </strong>R${{ nota.value }}<br>
                             <strong>Data:</strong> {{ nota.datetime }}<br>
                             <strong>Categoria:</strong>
-                            {% if nota.category_id %}
-                                {{ nota.category_id.name }}
-                            {% else %}
-                                Sem categoria
-                            {% endif %}
+                            {{ nota.category }}
                         </li>
                     </a>
                 </div>
