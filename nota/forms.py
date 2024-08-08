@@ -10,6 +10,12 @@ class CategoryForm(forms.ModelForm):
 
 class NotaForm(forms.ModelForm):
 
+    name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control input'}))
+    description = forms.CharField(widget=forms.Textarea({'class': 'form-control textarea'}))
+    value = forms.DecimalField(widget=forms.NumberInput(attrs={'class': 'form-control input'}))
+    datetime = forms.DateField(widget=forms.DateInput(attrs={"type": "date", 'class': 'flex select'}))
+    category = forms.ModelChoiceField( widget=forms.Select(attrs={"class": 'flex select'}), queryset=Category.objects.all())
+
     def clean_value(self):
         value = self.cleaned_data['value']
 
