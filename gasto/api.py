@@ -19,6 +19,7 @@ def gasto(request):
     gasto_serializer = Gasto_Serializer(gasto, many=True)
     return JsonResponse(gasto_serializer.data, safe=False)
 
+
 def categoria(request):
     categoria = Categoria.objects.all()
     categoria_serializer = Categoria_Serializer(categoria, many=True)
