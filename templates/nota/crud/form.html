@@ -1,10 +1,10 @@
 {% extends 'nota/base/base.html' %}
 {% block content %}
-    <div class="bg-slate-600  p-6 border border-black rounded-md m-6 dark:text-black ">
+    <div class="bg-slate-600 p-6 border border-black rounded-md m-6 dark:text-black ">
         <form method="post">
             {% csrf_token %}
             <div class=" grid gap-6 justify-center">
-                    {{ form}}
+                    {{ form }}
                 <label class="justify-center form-control">
                     <button class="btn bg-success text-white" type="submit"> Salvar</button>
                 </label>
